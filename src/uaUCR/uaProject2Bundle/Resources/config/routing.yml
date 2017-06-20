@@ -1,0 +1,238 @@
+ua_uc_rua_project2_homepage:
+    path:     /index
+    defaults: { _controller: uaUCRuaProject2Bundle:uaDefault:index }
+
+ua_ucr_ua_project2_search:
+    path:     /search/{page},{moviesNum}
+    defaults: { _controller: uaUCRuaProject2Bundle:uaDefault:search }
+
+ua_uc_rua_project2_show_login_form:
+    path:     /show_login_form
+    defaults: { _controller: uaUCRuaProject2Bundle:uaAccount:showLoginForm }
+
+ua_uc_rua_project2_log_out:
+    path:     /log_out
+    defaults: { _controller: uaUCRuaProject2Bundle:uaAccount:logOut }
+
+ua_ucr_ua_project2_login:
+    path: /login
+    defaults: { _controller: uaUCRuaProject2Bundle:uaAccount:login }
+    
+ua_uc_rua_project2_create_account:
+    path: /create_account
+    defaults: { _controller: uaUCRuaProject2Bundle:uaAccount:createAccount }
+
+ua_uc_rua_project2_about:
+    path:     /about
+    defaults: { _controller: uaUCRuaProject2Bundle:uaDefault:about }
+
+ua_uc_rua_project2_faq:
+    path:     /faq
+    defaults: { _controller: uaUCRuaProject2Bundle:uaDefault:faq }
+    
+ua_uc_rua_project2_contact:
+    path:     /contact
+    defaults: { _controller: uaUCRuaProject2Bundle:uaDefault:contact }
+    
+ua_uc_rua_project2_movies:
+    path:     /movies/{page},{moviesNum}
+    defaults: { _controller: uaUCRuaProject2Bundle:uaMovie:showMovies }
+    
+ua_uc_rua_project2_movie_details:
+    path:     /movie_detail/{codMovie}
+    defaults: { _controller: uaUCRuaProject2Bundle:uaMovie:movieDetails }
+    
+ua_uc_rua_project2_gender_movies:
+    path:     /gender_movies/{codGender},{page},{moviesNum}
+    defaults: { _controller: uaUCRuaProject2Bundle:uaMovie:genderMovies }
+
+ua_uc_rua_project2_actor_movies:
+    path:     /actor_movies/{idActor},{page},{moviesNum}
+    defaults: { _controller: uaUCRuaProject2Bundle:uaMovie:actorMovies }
+
+ua_uc_rua_project2_range_movies_by_years:
+    path:     /movies_by_years/,{page},{moviesNum}
+    defaults: { _controller: uaUCRuaProject2Bundle:uaMovie:moviesByYears }
+    
+ua_uc_rua_project2_range_movies_by_price:
+    path:     /movies_by_price/,{page},{moviesNum}
+    defaults: { _controller: uaUCRuaProject2Bundle:uaMovie:moviesByPrice }
+
+ua_uc_rua_project2_pagination:
+    path:     /pagination/{arrayMovies},{page},{moviesNum}
+    defaults: { _controller: uaUCRuaProject2Bundle:uaMovie:pagination }
+    
+ua_ucr_ua_project2_movie_qualification:
+    path:    /movie_qualification/{codMovie}
+    defaults: { _controller: uaUCRuaProject2Bundle:uaAccount:movieQualification }
+
+ua_ucr_ua_project2_index_admin:
+    path:     /index_admin
+    defaults: { _controller: uaUCRuaProject2Bundle:uaAdmin:index_admin }
+    
+ua_ucr_ua_project2_insert_movie_form:
+    path:     /insert_movie_form
+    defaults: { _controller: uaUCRuaProject2Bundle:uaMovie:insert_movie_form }
+
+ua_ucr_ua_project2_insert_movie:
+    path:    /insert_movie
+    defaults: { _controller: uaUCRuaProject2Bundle:uaMovie:insert_movie }
+
+ua_ucr_ua_project2_insert_gender_form:
+    path:     /insert_gender_form
+    defaults: { _controller: uaUCRuaProject2Bundle:uaGender:insert_gender_form }
+
+ua_ucr_ua_project2_insert_gender:
+    path:    /insert_gender
+    defaults: { _controller: uaUCRuaProject2Bundle:uaGender:insert_gender }
+
+ua_ucr_ua_project2_insert_actor_form:
+    path:     /insert_actor_form
+    defaults: { _controller: uaUCRuaProject2Bundle:uaActor:insert_actor_form }
+
+ua_ucr_ua_project2_insert_actor:
+    path:    /insert_actor
+    defaults: { _controller: uaUCRuaProject2Bundle:uaActor:insert_actor }
+
+ua_ucr_ua_project2_insert_adm_form:
+    path:     /insert_admin_form
+    defaults: { _controller: uaUCRuaProject2Bundle:uaAdmin:insert_admin_form }
+
+ua_ucr_ua_project2_insert_admin:
+    path:    /insert_admin
+    defaults: { _controller: uaUCRuaProject2Bundle:uaAdmin:insert_admin }
+
+ua_ucr_ua_project2_update_movie_form:
+    path:     /update_movie_form
+    defaults: { _controller: uaUCRuaProject2Bundle:uaMovie:update_movie_form }
+
+ua_ucr_ua_project2_update_movie:
+    path:    /update_movie/{codMovie}
+    defaults: { _controller: uaUCRuaProject2Bundle:uaMovie:update_movie }
+    
+ua_ucr_ua_project2_update_movie_page:
+    path:    /update_movie_page/{codMovie}
+    defaults: { _controller: uaUCRuaProject2Bundle:uaMovie:update_movie_page }
+
+ua_ucr_ua_project2_update_gender_form:
+    path:     /update_gender_form
+    defaults: { _controller: uaUCRuaProject2Bundle:uaGender:update_gender_form }
+
+ua_ucr_ua_project2_update_gender:
+    path:    /update_gender/{code}
+    defaults: { _controller: uaUCRuaProject2Bundle:uaGender:update_gender }
+    
+ua_ucr_ua_project2_update_gender_page:
+    path:    /update_gender_page/{code}
+    defaults: { _controller: uaUCRuaProject2Bundle:uaGender:update_gender_page }
+ 
+ua_ucr_ua_project2_insert_comment:
+    path:    /insert_comment/{codMovie}
+    defaults: { _controller: uaUCRuaProject2Bundle:uaMovie:insertComment }
+
+ua_ucr_ua_project2_shopping_cart:
+    path:    /shopping_cart
+    defaults: { _controller: uaUCRuaProject2Bundle:uaAccount:shoppingCart }
+    
+ua_ucr_ua_project2_add_to_cart:
+    path:    /add_to_cart/{codMovie}
+    defaults: { _controller: uaUCRuaProject2Bundle:uaAccount:addToCart }
+
+ua_ucr_ua_project2_purchase_form:
+    path:    /purchase_form
+    defaults: { _controller: uaUCRuaProject2Bundle:uaAccount:purchaseForm }
+    
+ua_ucr_ua_project2_purchase:
+    path:    /purchase
+    defaults: { _controller: uaUCRuaProject2Bundle:uaAccount:purchase }
+
+ua_uc_rua_project2_remove_from_cart:
+    path:    /remove_form_cart/{codMovie}
+    defaults: { _controller: uaUCRuaProject2Bundle:uaAccount:removeItem }
+
+ua_ucr_ua_project2_customer_profile:
+    path:    /customer_profile
+    defaults: { _controller: uaUCRuaProject2Bundle:uaAccount:customerProfile }
+    
+ua_ucr_ua_project2_edit_profile:
+    path:    /edit_profile
+    defaults: { _controller: uaUCRuaProject2Bundle:uaAccount:editProfile }
+    
+ua_ucr_ua_project2_delete_profile:
+    path:    /delete_profile
+    defaults: { _controller: uaUCRuaProject2Bundle:uaAccount:deleteProfile }
+    
+        
+ua_ucr_ua_project2_update_actor_form:
+    path:     /update_actor_form
+    defaults: { _controller: uaUCRuaProject2Bundle:uaActor:update_actor_form }
+
+ua_ucr_ua_project2_update_actor:
+    path:    /update_actor/{code}
+    defaults: { _controller: uaUCRuaProject2Bundle:uaActor:update_actor }
+    
+ua_ucr_ua_project2_update_actor_page:
+    path:    /update_actor_page/{code}
+    defaults: { _controller: uaUCRuaProject2Bundle:uaActor:update_actor_page }
+    
+ua_ucr_ua_project2_delete_movie_page:
+    path:    /delete_movie_page/{codMovie}
+    defaults: { _controller: uaUCRuaProject2Bundle:uaMovie:delete_movie_page }
+
+
+ua_ucr_ua_project2_delete_movie:
+    path:    /delete_movie/{codMovie}
+    defaults: { _controller: uaUCRuaProject2Bundle:uaMovie:delete_movie }
+    
+ua_ucr_ua_project2_delete_actor_page:
+    path:    /delete_actor_page/{codActor}
+    defaults: { _controller: uaUCRuaProject2Bundle:uaActor:delete_actor_page }
+    
+ua_ucr_ua_project2_delete_actor:
+    path:    /delete_actor/{codActor}
+    defaults: { _controller: uaUCRuaProject2Bundle:uaActor:delete_actor }
+   
+ua_ucr_ua_project2_delete_gender_page:
+    path:    /delete_gender_page/{codGender}
+    defaults: { _controller: uaUCRuaProject2Bundle:uaGender:delete_gender_page }
+    
+ua_ucr_ua_project2_delete_gender:
+    path:    /delete_gender/{codGender}
+    defaults: { _controller: uaUCRuaProject2Bundle:uaGender:delete_gender }
+   
+    
+ua_ucr_ua_project2_update_information_form:
+    path:    /update_information_form
+    defaults: { _controller: uaUCRuaProject2Bundle:uaDefault:update_information_form }
+   
+ua_ucr_ua_project2_update_information:
+    path:    /update_information
+    defaults: { _controller: uaUCRuaProject2Bundle:uaDefault:update_information }
+    
+ua_ucr_ua_project2_sale_movies_years_form:
+    path:    /sale_movies_years_form
+    defaults: { _controller: uaUCRuaProject2Bundle:uaMovie:sale_movies_years_form }
+   
+ua_ucr_ua_project2_sale_movies_years:
+    path:    /sale_movies_years
+    defaults: { _controller: uaUCRuaProject2Bundle:uaMovie:sale_movies_years }
+   
+ua_ucr_ua_project2_rent_movies_years_form:
+    path:    /rent_movies_years_form
+    defaults: { _controller: uaUCRuaProject2Bundle:uaMovie:rent_movies_years_form }
+   
+ua_ucr_ua_project2_rent_movies_years:
+    path:    /rent_movies_years/{year1}/{year2}
+    defaults: { _controller: uaUCRuaProject2Bundle:uaMovie:rent_movies_years }
+   
+ua_ucr_ua_project2_best_customers:
+    path:    /best_customers
+    defaults: { _controller: uaUCRuaProject2Bundle:uaMovie:best_customers }
+    
+ua_ucr_ua_project2_sale_movies_years:
+    path:    /sale_movies_years
+    defaults: { _controller: uaUCRuaProject2Bundle:uaMovie:sale_movies_years}
+   
+ua_ucr_ua_project2_sale_movies_years_form:
+    path:    /sale_movies_years_form
+    defaults: { _controller: uaUCRuaProject2Bundle:uaMovie:sale_movies_years_form}

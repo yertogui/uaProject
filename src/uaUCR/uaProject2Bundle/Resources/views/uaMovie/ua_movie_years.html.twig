@@ -1,0 +1,30 @@
+{% extends "uaUCRuaProject2Bundle::ua_base_admin.html.twig"%} 
+{%block menuAdmin%}{%endblock%}
+{%block banner%}{%endblock%}
+{%block rightBar%}{%endblock%}
+
+{%block content%}
+
+<form action="{{ path('ua_ucr_ua_project2_sale_movies_years')}} "method="POST">
+    <table>
+        <tr>
+                <td> Year : </td>
+                <td> 
+                    <input type="number" name="txtYear1" id="txtYear1"value="Year 1"min="1800"max="2016">
+                </td>
+        </tr>
+        <tr>
+                <td> to : </td>
+                <td>
+                    <input type="number" name="txtYear2" id="txtYear1"value="Year 2" min="1800"max="2016">
+                </td>
+        </tr>
+        
+        <tr>
+            <td>
+        <input type="submit" value="Send" name="btnSend" id="btnSend">
+            </td>
+        </tr>
+    </table>
+</form>
+{%endblock%}

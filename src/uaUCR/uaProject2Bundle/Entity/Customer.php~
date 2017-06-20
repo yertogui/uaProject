@@ -1,0 +1,96 @@
+<?php
+
+namespace uaUCR\uaProject2Bundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Customer
+ *
+ * @ORM\Table(name="customer", uniqueConstraints={@ORM\UniqueConstraint(name="user", columns={"email", "card"})})
+ * @ORM\Entity
+ */
+class Customer
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idCustomer", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idcustomer;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=50, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="country", type="string", length=30, nullable=false)
+     */
+    private $country;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="address", type="string", length=300, nullable=true)
+     */
+    private $address;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=80, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="telephone", type="integer", nullable=false)
+     */
+    private $telephone;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=50, nullable=true)
+     */
+    private $password;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="card", type="integer", nullable=true)
+     */
+    private $card;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Movie", inversedBy="idcustomer")
+     * @ORM\JoinTable(name="purchase",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="idCustomer", referencedColumnName="idCustomer")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="codMovie", referencedColumnName="codMovie")
+     *   }
+     * )
+     */
+    private $codmovie;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->codmovie = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

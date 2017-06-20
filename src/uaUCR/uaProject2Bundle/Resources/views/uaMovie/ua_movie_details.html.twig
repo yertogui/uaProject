@@ -1,0 +1,125 @@
+{# empty Twig template #}
+{% extends "uaUCRuaProject2Bundle::ua_base.html.twig"%} 
+
+{%block header_bottom_left%}
+<div class="header_bottom">
+    <div class="header_bottom_left">
+        <div class="heading">
+            <br> 
+            <h3>&nbsp&nbsp&nbsp&nbsp&nbsp{{movie.getTitle()}} ({{movie.getYear()}})</h3>
+        </div>
+
+        <div class="content_top">
+
+            <div class="content">
+                <div class="synopsis">
+                    <h2><b>Synopsis: </b></h2>
+                    <h3>{{movie.getDescription()}}</h3><br>
+                    <h2><b>Gender: {{movie.getCodGender().getName()}}</b></h2><br>
+                    <h2><b>Actors:</b></h2>
+                {% for actor in movie.getIdactor()%}
+                    {{ actor.getName() ~ " " ~ actor.getLastname() }} <br>
+                {% endfor%}<br>
+
+                {%if movie.getSubtitled() == 1%}
+                    <h2><b>Subtitled: YES  </b></h2><br>
+                     {% elseif (movie.getPremiere() == 0 )%}
+                    <h2><b>Subtitled: NO  </b></h2><br>
+                     {% else %}
+                {%endif%}
+
+                {%if movie.getPremiere() == 1%}
+                    <h2><b>Premiere: YES  </b></h2><br>
+                     {% elseif (movie.getPremiere() == 0 )%}
+                    <h2><b>Premiere: NO  </b></h2><br>
+                     {% else %}
+                {%endif%}
+
+                    <h2><b>Running Time: {{movie.getRunningTime()}} min</b></h2><br>
+                    <h2><b>Price: </b>${{movie.getPrice()}}.00</h2>
+
+
+                </div>
+                
+                    <!--Calificacion de estrellas -->
+                    <h2><b>Qualification: </h2>    
+                    
+                    <fieldset class="rating" >
+                        <input type="radio" onclick="{{path('ua_ucr_ua_project2_movie_qualification', {'codMovie': movie.getCodmovie()})}}" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                        <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                        <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                        <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                        <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                    </fieldset>
+               
+               <br><br><br>
+               
+            </div>
+            
+        </div>
+ 
+        <div class="clear"></div>
+    </div>
+{%endblock%}
+
+{%block header_bottom_right_images %}
+    <div class="header_bottom_right_images_2" width="49%">
+        <!-- FlexSlider -->
+                   {%block slider%}
+        <section class="slider">
+            <div class="flexslider">
+                <ul class="slides">
+                    <li><img src="{{ asset('bundles/uaucr_uaproyect2_app/images/movies/movie' ~ movie.getCodMovie() ~ '.jpg')}}" height="600" width="280" alt=""/></li>
+                </ul>
+
+                <div class="grid_1_of_4 images_1_of_4">
+                    <div class="button"><span><img src="{{ asset('bundles/uaucr_uaproyect2_app/images/cart.jpg')}}" alt="" /><a href="{{path('ua_ucr_ua_project2_add_to_cart', {'codMovie': movie.getCodMovie()})}}" class="cart-button">Add to Cart</a></span> </div>
+                </div>
+
+            </div>
+        </section>
+                   {%endblock%}
+        <!-- FlexSlider -->
+        <form>
+
+</form>
+    </div>
+    <div class="clear"></div>
+</div>	
+
+{%endblock%}
+
+
+            {%block content%}
+
+                <div class="content">
+                    <div class="content_top">
+                        <div class="heading">
+                            <h3>Comments</h3>
+                        </div>
+
+                        <div class="clear"></div>
+                    </div>
+                    <div class="section group">
+                        <div class="search_box">
+                            <form action="{{path('ua_ucr_ua_project2_insert_comment', {'codMovie': movie.getCodmovie()})}}" method="POST">
+                                <h2>Email: </h2>
+                                <input type="text" border="black" name="txtEmail" id="txtEmail">
+                                <h2>Comment: </h2>
+                                <textarea name="txtComment" id="txtComment"></textarea>
+                                <input type="submit" name="btnSave" id="btnSave" value="SAVE">
+                                
+                            </form>
+                        </div>
+                            
+                        
+                    </div>
+                    <div class="content">
+                        {% for comment in comments%}
+                            <h2>{{ comment.getAuthor() ~ " said: "  }}</h2> <br>
+                            <h3>{{ comment.getComment()  }}</h3>
+                            ____________________________________________________
+                        {% endfor%}<br>
+                    </div>
+                </div>
+            {%endblock%}

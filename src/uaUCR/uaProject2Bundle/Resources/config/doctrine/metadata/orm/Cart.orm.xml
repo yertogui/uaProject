@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Cart" table="cart">
+    <indexes>
+      <index name="codMovie" columns="codMovie"/>
+      <index name="idCustomer" columns="idCustomer"/>
+    </indexes>
+    <id name="idcart" type="integer" column="idCart"/>
+    <id name="idcustomer" association-key="true"/>
+    <id name="codmovie" association-key="true"/>
+    <one-to-one field="codmovie" target-entity="Movie">
+      <join-columns>
+        <join-column name="codMovie" referenced-column-name="codMovie"/>
+      </join-columns>
+    </one-to-one>
+    <one-to-one field="idcustomer" target-entity="Customer">
+      <join-columns>
+        <join-column name="idCustomer" referenced-column-name="idCustomer"/>
+      </join-columns>
+    </one-to-one>
+  </entity>
+</doctrine-mapping>

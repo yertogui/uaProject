@@ -1,0 +1,31 @@
+{% extends "uaUCRuaProject2Bundle::ua_base_admin.html.twig"%} 
+{%block menuAdmin%}{%endblock%}
+{%block banner%}{%endblock%}
+{%block rightBar%}{%endblock%}
+
+{%block content%}
+
+<div class="section group">
+  {% for gender in allGenders %}  
+    <div class="grid_1_of_4 images_1_of_4">
+        <h5>Name: </h5>
+            <h3>{{gender.getName()}}</h3>
+      <a href="{{path('ua_ucr_ua_project2_update_gender_page',{'code':gender.getCode()})}}">
+          <input type="button"value="Update" name="btnInsertG" id="btnInsertG"/></a>
+      <br>
+      <a href="{{path('ua_ucr_ua_project2_delete_gender_page',{'codGender':gender.getCode()})}}">          
+          <input class="cart " type="button"value="Delete" name="btnInsertG" id="btnInsertG" onclick=""/></a>
+      
+    </div>
+    {% endfor %}
+</div>
+
+
+
+
+
+
+
+</div>
+
+{%endblock%}

@@ -1,0 +1,22 @@
+{% extends "uaUCRuaProject2Bundle::ua_base_admin.html.twig"%} 
+{%block menuAdmin%}{%endblock%}
+{%block banner%}{%endblock%}
+{%block rightBar%}{%endblock%}
+
+{%block content%}
+
+<div class="section group">
+  {% for actor in allActors %}  
+    <div class="grid_1_of_4 images_1_of_4">
+        <h5>Name: </h5>
+            <h3>{{ actor.getName() }} {{actor.getLastname()}}</h3>
+      
+      <a href="{{path('ua_ucr_ua_project2_update_actor_page',{'code':actor.getId()})}}">
+          <input type="button"value="Update" name="btnUpdateA" id="btnUpdateA"/></a>
+      <br>
+      <a href="{{path('ua_ucr_ua_project2_delete_actor_page',{'codActor':actor.getId()})}}">
+      <input type="button"value="Delete" name="btnDeleteA" id="btnDeleteA" onclick=""/></a>
+      </div>
+    {% endfor %}
+</div>
+{%endblock%}

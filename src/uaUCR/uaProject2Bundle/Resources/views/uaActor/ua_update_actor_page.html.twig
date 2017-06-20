@@ -1,0 +1,60 @@
+{% extends "uaUCRuaProject2Bundle::ua_base_admin.html.twig"%} 
+{%block menuAdmin%}{%endblock%}
+{%block banner%}{%endblock%}
+{%block rightBar%}{%endblock%}
+
+{%block content%}
+
+ <h2>Update Actor</h2>
+    
+    <form name="form1" id="form1" action="{{ path('ua_ucr_ua_project2_update_actor',{'code':allActors.getId()} )}} " method="post">
+        <table>
+            <tr>
+                <td> Name: </td>
+                <td> 
+                    <input type ="text" name ="txtActor" id="txtActor"value="{{allActors.getName()}}"> </input>
+                <div id="msgErrorActor" style="color: red"  >*</div>                                   
+                </td> 
+                
+            </tr>
+           
+            <tr>
+                <td> Last Name: </td>
+                <td> 
+                    <input type ="text" name ="txtLast" id="txtGender"value="{{allActors.getLastname()}}"> </input>
+                <div id="msgErrorActorLast" style="color: red"  >*</div>                                   
+                </td> 
+                
+            </tr>
+           
+              <tr>
+                <td>
+                   
+                   <input type="submit"value="Update Actor" name="btnUpdateA" id="btnUpdateA"/> </input>                                    
+                </td>    
+            </tr>
+            </table>
+        </form>
+ <script>
+    function validateIM(){
+    
+        var title = document.getElementById('txtGender');
+        
+        var emptyGender = false;
+
+        if(title.value.length < 2){
+            document.getElementById('msgErrorGender').style.visibility = 'visible';
+            emptyGender = true;
+        }else{
+            document.getElementById('msgErrorGender').style.visibility = 'hidden';
+        }//end if/else
+
+        
+        if(emptyGender=== true){
+            return false;
+        }else{
+            return true;
+        }//end if/else
+    }//end validateIM
+    </script>
+{%endblock%}

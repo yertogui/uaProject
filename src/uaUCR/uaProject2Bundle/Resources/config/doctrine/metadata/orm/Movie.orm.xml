@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Movie" table="movie">
+    <indexes>
+      <index name="fk_codGender" columns="codGender"/>
+    </indexes>
+    <id name="codmovie" type="integer" column="codMovie">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="title" type="string" column="title" length="29" nullable="true"/>
+    <field name="quantity" type="integer" column="quantity" nullable="true"/>
+    <field name="subtitled" type="boolean" column="subtitled" nullable="true"/>
+    <field name="premiere" type="boolean" column="premiere" nullable="true"/>
+    <field name="year" type="integer" column="year" nullable="false"/>
+    <field name="description" type="string" column="description" length="1000" nullable="true"/>
+    <field name="runningtime" type="integer" column="runningTime" nullable="true"/>
+    <field name="price" type="integer" column="price" nullable="false"/>
+    <many-to-one field="codgender" target-entity="Gender">
+      <join-columns>
+        <join-column name="codGender" referenced-column-name="code"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="idcustomer" target-entity="Customer" mapped-by="codmovie"/>
+    <many-to-many field="idactor" target-entity="Actor" mapped-by="codmovie"/>
+  </entity>
+</doctrine-mapping>

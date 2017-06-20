@@ -1,0 +1,35 @@
+<?php
+
+namespace uaUCR\uaProject2Bundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Blockbustertelephones
+ *
+ * @ORM\Table(name="blockbustertelephones")
+ * @ORM\Entity
+ */
+class Blockbustertelephones
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telephone", type="string", length=10, nullable=false)
+     */
+    private $telephone;
+
+    /**
+     * @var \Blockbuster
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Blockbuster")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id", referencedColumnName="id")
+     * })
+     */
+    private $id;
+
+
+}

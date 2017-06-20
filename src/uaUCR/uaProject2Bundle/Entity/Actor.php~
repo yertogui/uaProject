@@ -1,0 +1,61 @@
+<?php
+
+namespace uaUCR\uaProject2Bundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Actor
+ *
+ * @ORM\Table(name="actor")
+ * @ORM\Entity
+ */
+class Actor
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=13, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lastName", type="string", length=13, nullable=true)
+     */
+    private $lastname;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Movie", inversedBy="idactor")
+     * @ORM\JoinTable(name="movie_actor",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="idActor", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="codMovie", referencedColumnName="codMovie")
+     *   }
+     * )
+     */
+    private $codmovie;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->codmovie = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

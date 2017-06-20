@@ -1,0 +1,51 @@
+{% extends "uaUCRuaProject2Bundle::ua_base_admin.html.twig"%} 
+{%block menuAdmin%}{%endblock%}
+{%block banner%}{%endblock%}
+{%block rightBar%}{%endblock%}
+
+{%block content%}
+
+ <h2>Update Gender</h2>
+    
+    <form name="form1" id="form1" action="{{ path('ua_ucr_ua_project2_update_gender',{'code':allGenders.getCode()} )}} " method="post">
+        <table>
+            <tr>
+                <td> Name: </td>
+                <td> 
+                    <input type ="text" name ="txtGender" id="txtGender"value="{{allGenders.getName()}}"> </input>
+                <div id="msgErrorActorLast" style="color: red"  >*</div>                                   
+                </td> 
+                
+            </tr>
+           
+              <tr>
+                <td>
+                   
+                   <input type="submit"value="Update Gender" name="btnInsertG" id="btnInsertG"/> </input>                                    
+                </td>    
+            </tr>
+            </table>
+        </form>
+ <script>
+    function validateIM(){
+    
+        var title = document.getElementById('txtGender');
+        
+        var emptyGender = false;
+
+        if(title.value.length < 2){
+            document.getElementById('msgErrorGender').style.visibility = 'visible';
+            emptyGender = true;
+        }else{
+            document.getElementById('msgErrorGender').style.visibility = 'hidden';
+        }//end if/else
+
+        
+        if(emptyGender=== true){
+            return false;
+        }else{
+            return true;
+        }//end if/else
+    }//end validateIM
+    </script>
+{%endblock%}

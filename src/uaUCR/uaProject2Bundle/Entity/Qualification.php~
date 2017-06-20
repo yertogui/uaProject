@@ -1,0 +1,35 @@
+<?php
+
+namespace uaUCR\uaProject2Bundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Qualification
+ *
+ * @ORM\Table(name="qualification")
+ * @ORM\Entity
+ */
+class Qualification
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="stars", type="integer", nullable=false)
+     */
+    private $stars;
+
+    /**
+     * @var \Movie
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Movie")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="codMovie", referencedColumnName="codMovie")
+     * })
+     */
+    private $codmovie;
+
+
+}

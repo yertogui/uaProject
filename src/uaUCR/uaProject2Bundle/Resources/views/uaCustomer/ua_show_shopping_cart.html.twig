@@ -1,0 +1,43 @@
+{% extends "uaUCRuaProject2Bundle::ua_base.html.twig"%} 
+
+
+{%block slider%}{%endblock%}
+{%block header_bottom_left%}{%endblock%}
+
+{%block content%}
+
+<div class="content">
+    	<div class="content_top">
+            <div class="heading">
+                 <h3>Shopping Cart </h3> 
+            </div>
+                <br><br>
+        </div>
+        
+        <div class="section group">
+                   	
+           
+                 {% for movie in cartItems %}
+				<div class="grid_1_of_4 images_1_of_4">
+                                    <div class="listimg listimg_2_of_1">
+                                            <a href="{{path('ua_uc_rua_project2_movie_details', {'codMovie': movie.getCodMovie()})}}"> <img src="{{ asset('bundles/uaucr_uaproyect2_app/images/movies/movie' ~ movie.getCodMovie() ~ '.jpg')}}" height="170" width="150" alt="" /></a>
+                                    </div>
+					 
+					 <h2>{{ movie.getTitle()}} </h2>
+					
+					 <p><span class="price">${{movie.getPrice()}}.00</span></p>
+				     <div class="button"><span><a href="{{path('ua_uc_rua_project2_movie_details', {'codMovie': movie.getCodMovie()})}}" class="details">Details</a></span></div>
+				     <div class="button"><span><a href="{{path('ua_uc_rua_project2_remove_from_cart', {'codMovie': movie.getCodMovie()})}}" class="details">Remove</a></span></div>
+				</div>
+                {% endfor %}	
+            
+        <div class="currency" align="center">
+            <a href="{{path('ua_ucr_ua_project2_purchase_form')}}"><div class="search"><div><button class="grey">BUY</button></div></div></a> <br><br><br>
+        </div>
+        </div>
+        <a href="{{path('ua_uc_rua_project2_homepage')}}"<h3>Go to principal page</h3></a>
+       
+    </div>
+
+
+{%endblock%}

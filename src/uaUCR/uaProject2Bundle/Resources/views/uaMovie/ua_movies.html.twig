@@ -1,0 +1,156 @@
+{% extends "uaUCRuaProject2Bundle::ua_base.html.twig"%} 
+
+
+{%block slider%}{%endblock%}
+{%block header_bottom_left%}{%endblock%}
+
+{%block menu%}
+
+<div class="menu">
+    <ul id="dc_mega-menu-orange" class="dc_mm-orange">
+        <li><a href="{{path('ua_uc_rua_project2_homepage')}}">Home</a></li>
+        <li><a href="{{path('ua_uc_rua_project2_movies', {'page': 1,'moviesNum': 6})}}">Movies</a></li>
+        <li><a href="">Genders</a>
+            <ul>
+                {%for gender in allGenders%}
+                    <li><a href="{{path('ua_uc_rua_project2_gender_movies', {'codGender': gender.getCode(), 'page': 1,'moviesNum': 6})}}">{{gender.getName()}}</a></li>
+                {%endfor%}
+            </ul>
+        </li>
+        
+        <li><a href="{{path('ua_uc_rua_project2_about')}}">About</a></li>
+        <li><a href="{{path('ua_uc_rua_project2_contact')}}">Contact</a> </li>
+        <div class="clear"></div>
+    </ul>
+</div>
+        {%endblock menu%}
+
+{%block content%}
+
+               
+    <div class="content">
+    	<div class="content_top">
+    		<div class="heading">
+    		<h3>{{currentView}}</h3>
+    		</div>
+                
+    		<div class="sort">
+                    <form action="{{path('ua_uc_rua_project2_range_movies_by_years', {'page':1, 'moviesNum':6})}}" method="POST">
+                        <p>Year:
+                            <input type="number" name="txtYearIni" id="txtYearIni"min="1800" max="2016"/>
+                            <br> &nbsp;&nbsp;&nbsp; to: 
+                            <input type="number" name="txtYearEnd" id="txtYearEnd"min="1800" max="2016"/>
+                            <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="submit" value="Search" name="btnYearsRange" id="btnYearsRange" onclick="return checkYears();"/>
+                            <div id="msgErrorIni" style="color:red">*</div>
+                        </p>
+                     </form> 
+    		</div>
+                
+                <div class="sort">
+                    <form action="{{path('ua_uc_rua_project2_range_movies_by_price', {'page':1, 'moviesNum':6})}}" method="POST">
+                        <p>Price: $
+                            <input type="number" name="txtPriceIni" id="txtPriceIni"min="1" max="20"/>
+                            <br> &nbsp;&nbsp;&nbsp;&nbsp; to: $
+                            <input type="number" name="txtPriceEnd" id="txtPriceEnd"min="1" max="20"/>
+                            <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="submit" value="Search" name="btnPriceRange" id="btnPriceRange" onclick="return checkPrice();"/>
+                            <div id="msgErrorPrice" style="color:red">*</div>
+                        </p>
+                    </form>
+    		</div>
+                
+    		<div class="show">
+    		<p>Show:
+                    <select name="showNumber" id="showNumber" onchange="">
+                        <option value="3" onclick="{{path('ua_uc_rua_project2_movies', {'page': 1,'moviesNum': 3})}}">3</option>
+                        <option value="6" onclick="{{path('ua_uc_rua_project2_movies', {'page': 1,'moviesNum': 6})}}">6</option>
+                        <option value="9" onclick="{{path('ua_uc_rua_project2_movies', {'page': 1,'moviesNum': 9})}}">9</option>
+                        <option value="12" onclick="{{path('ua_uc_rua_project2_movies', {'page': 1,'moviesNum': 12})}}">12</option>
+                    </select>
+    		</p>
+                
+    		</div>
+    		<div class="page-no">
+    			<p>Result Pages:<ul>
+                           {%for i in 1..totalPages%}
+                                <li class="active"><a href="{{path('ua_uc_rua_project2_movies', {'page': i,'moviesNum': moviesNumber})}}">{{i}}</a></li>
+                           {%endfor%}
+                            
+    				
+    				<!--<li>[<a href="{{path('ua_uc_rua_project2_movies', {'page': 1,'moviesNum': 6})}}"> Next>>></a >]</li>  -->
+    				</ul></p>
+    		</div>
+    		<div class="clear"></div>
+    	</div>
+	      <div class="section group">
+                   	
+                   {% for movie in allMovies %}
+				<div class="grid_1_of_4 images_1_of_4">
+                                    <div class="listimg listimg_2_of_1">
+                                            <a href="{{path('ua_uc_rua_project2_movie_details', {'codMovie': movie.getCodMovie()})}}"> <img src="{{ asset('bundles/uaucr_uaproyect2_app/images/movies/movie' ~ movie.getCodMovie() ~ '.jpg')}}" height="170" width="150" alt="" /></a>
+                                    </div>
+					 
+					 <h2>{{ movie.getTitle()}} </h2>
+					
+					 <p><span class="price">${{movie.getPrice()}}.00</span></p>
+					  <div class="button"><span><img src="{{ asset('bundles/uaucr_uaproyect2_app/images/cart.jpg')}}" alt="" /><a href="{{path('ua_ucr_ua_project2_add_to_cart', {'codMovie': movie.getCodMovie()})}}" class="cart-button">Add to Cart</a></span> </div>
+				     <div class="button"><span><a href="{{path('ua_uc_rua_project2_movie_details', {'codMovie': movie.getCodMovie()})}}" class="details">Details</a></span></div>
+				</div>
+                    {% endfor %}	
+	      </div>
+        </div>
+
+<script type="text/javascript">
+        
+        //ocultar los *
+        document.getElementById('msgErrorIni').style.visibility = "hidden";
+        document.getElementById('msgErrorPrice').style.visibility = "hidden";
+        
+        function checkYears(){
+            var yearIni = document.getElementById('txtYearIni');
+            var yearEnd = document.getElementById('txtYearEnd');
+            var emptyYearI, emptyYearE;
+            
+            if(yearIni.value.length < 4){
+                emptyYearI = true;
+                document.getElementById('msgErrorIni').style.visibility = "visible";
+            }
+            
+            if(yearEnd.value.length < 4){
+                emptyYearE = true;
+                document.getElementById('msgErrorIni').style.visibility = "visible";
+            }
+            
+            if(emptyYearE || emptyYearI){
+                return false;
+            }else{
+                return true;
+            }
+            
+        }//end checkYears
+        
+        function checkPrice(){
+            var priceIni = document.getElementById('txtPriceIni');
+            var priceEnd = document.getElementById('txtPriceEnd');
+            var emptyPriceI, emptyPriceE;
+            
+            if(priceIni.value.length < 1){
+                emptyPriceI = true;
+                document.getElementById('msgErrorPrice').style.visibility = "visible";
+            }
+            
+            if(priceEnd.value.length < 1){
+                emptyPriceE = true;
+                document.getElementById('msgErrorPrice').style.visibility = "visible";
+            }
+            
+            if(emptyPriceE || emptyPriceI){
+                return false;
+            }else{
+                return true;
+            }
+        }//end checkPrice
+</script> 
+{%endblock%}
+      

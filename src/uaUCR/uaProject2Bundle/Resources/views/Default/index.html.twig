@@ -1,0 +1,29 @@
+{% extends "uaUCRuaProject2Bundle::ua_base.html.twig"%} 
+
+{%block menu%}
+
+<div class="menu">
+    <ul id="dc_mega-menu-orange" class="dc_mm-orange">
+        <li><a href="{{path('ua_uc_rua_project2_homepage')}}">Home</a></li>
+        <li><a href="{{path('ua_uc_rua_project2_movies', {'page': 1,'moviesNum': 6})}}">Movies</a></li>
+        <li><a href="">Genders</a>
+            <ul>
+                {%for gender in allGenders%}
+                    <li><a href="{{path('ua_uc_rua_project2_gender_movies', {'codGender': gender.getCode(), 'page': 1,'moviesNum': 6})}}">{{gender.getName()}}</a></li>
+                {%endfor%}
+            </ul>
+        </li>
+        
+        <li><a href="{{path('ua_uc_rua_project2_about')}}">About</a></li>
+        <li><a href="{{path('ua_uc_rua_project2_contact')}}">Contact</a> </li>
+        <div class="clear"></div>
+    </ul>
+</div>
+        {%endblock menu%}
+
+ {%block content%} 
+<div class="content">
+
+    <br><br><br><br>
+</div>
+{%endblock%}

@@ -1,0 +1,40 @@
+{% extends "uaUCRuaProject2Bundle::ua_base_admin.html.twig"%} 
+{%block menuAdmin%}{%endblock%}
+{%block banner%}{%endblock%}
+{%block rightBar%}{%endblock%}
+
+{%block content%}
+<h1> Are you sure to remove this gender?</h1>
+<div class="section group"><form name="form1" id="form1" action="{{ path('ua_ucr_ua_project2_delete_gender',{'codGender':allGenders.getCode()} )}} " method="post" >
+        <div class="grid_1_of_4 images_1_of_4">
+            <h3>Name: </h3>
+            <h5>{{allGenders.getName()}}</h5>
+            
+            <input type="submit" value="Delete Gender" name="btnDeleteG" id="btnDeleteG"/> </input>                                    
+
+       </div>
+    </form>
+</div>
+ <script>
+    function validateIM(){
+    
+        var title = document.getElementById('txtGender');
+        
+        var emptyGender = false;
+
+        if(title.value.length < 2){
+            document.getElementById('msgErrorGender').style.visibility = 'visible';
+            emptyGender = true;
+        }else{
+            document.getElementById('msgErrorGender').style.visibility = 'hidden';
+        }//end if/else
+
+        
+        if(emptyGender=== true){
+            return false;
+        }else{
+            return true;
+        }//end if/else
+    }//end validateIM
+    </script>
+{%endblock%}

@@ -1,0 +1,72 @@
+{% extends "uaUCRuaProject2Bundle::ua_base_admin.html.twig"%} 
+{%block menuAdmin%}{%endblock%}
+{%block banner%}{%endblock%}
+{%block rightBar%}{%endblock%}
+
+{%block content%}
+<h2>Insert Actor</h2>
+<form name="form1" id="form1" action="{{ path('ua_ucr_ua_project2_insert_actor')}}" method="post">
+        <table>
+            <tr>
+                <td> Name: </td>
+                <td> 
+                    <input type ="text" name ="txtName" id="txtName"> </input>
+                <div id="msgErrorName" style="color: red"  >*</div>                                   
+                </td> 
+                
+            </tr>
+            <tr>
+                <td>Last name: </td>
+                <td> 
+                    <input type ="text" name ="txtLastName" id="txtLastName"> </input>
+                <div id="msgErrorlastName" style="color: red"  >*</div>                                   
+                </td> 
+                
+            </tr>
+            
+              <tr>
+                <td>
+                    
+                   <input type="submit"value="Insert Actor" name="btnInsertM" id="btnInsertM"/> </input>                                    
+                </td>    
+            </tr>
+            </table>
+        </form>
+ <script>
+    function validateIM(){
+    
+        var name = document.getElementById('txtName');
+        var last = document.getElementById('txtLastName');
+        
+        var emptyName = false;
+        var emptyLast = false;
+
+        if(name.value.length < 2){
+            document.getElementById('msgErrorName').style.visibility = 'visible';
+            emptyName = true;
+        }else{
+            document.getElementById('msgErrorName').style.visibility = 'hidden';
+        }//end if/else
+
+        
+        if(last.value.length < 2){
+            document.getElementById('msgErrorlastName').style.visibility = 'visible';
+            emptyLast = true;
+        }else{
+            document.getElementById('msgErrorlastName').style.visibility = 'hidden';
+        }//end if/else
+
+        
+        if(emptyName=== true){
+            return false;
+        }else{
+            return true;
+        }//end if/else
+        if(emptyLast=== true){
+            return false;
+        }else{
+            return true;
+        }//end if/else
+    }//end validateIM
+    </script>
+{%endblock%}

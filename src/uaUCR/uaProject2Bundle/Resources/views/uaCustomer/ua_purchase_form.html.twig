@@ -1,0 +1,40 @@
+{% extends "uaUCRuaProject2Bundle::ua_base.html.twig"%} 
+
+
+{%block slider%}{%endblock%}
+{%block header_bottom_left%}{%endblock%}
+
+{%block content%}
+
+<div class="content">
+    	<div class="content_top">
+            <div class="heading">
+                 <h3>Purchase </h3> <br><br>
+            </div>
+                
+        </div>
+        
+        <div class="section group">
+            
+           
+            <center>
+            <div class="grid_1_of_4 images_1_of_4">
+                <h2>TOTAL: $ {{total}}</h2>
+                
+                    <h2>Credit Cart Number: {{creditCard}}</h2>
+                    
+                    <div class="currency" align="center">
+                        <a href="{{path('ua_ucr_ua_project2_purchase')}}"><div class="search"><div><button class="grey">BUY</button></div></div></a> <br><br><br>
+                    </div>
+                
+            </div></center>
+             
+        </div>
+                   	
+           
+        <a href="{{path('ua_uc_rua_project2_homepage')}}"<h3>Go to principal page</h3></a>
+       
+    </div>
+
+
+{%endblock%}

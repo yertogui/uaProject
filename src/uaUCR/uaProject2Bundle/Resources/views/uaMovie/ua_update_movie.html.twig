@@ -1,0 +1,28 @@
+{% extends "uaUCRuaProject2Bundle::ua_base_admin.html.twig"%} 
+{%block menuAdmin%}{%endblock%}
+{%block banner%}{%endblock%}
+{%block rightBar%}{%endblock%}
+
+{%block content%}
+
+<div class="section group">
+  {% for movie in allMovies %}  
+    <div class="grid_1_of_4 images_1_of_4">
+      <h5>Tittle: </h5>
+      <h3>{{ movie.getTitle() }}</h4>
+      <a href="{{path('ua_ucr_ua_project2_update_movie_page',{'codMovie':movie.getCodmovie()})}}"><input type="button"value="Update" name="btnInsertA" id="btnInsertA"/></a>
+      <br>
+      <a href="{{path('ua_ucr_ua_project2_delete_movie_page',{'codMovie':movie.getCodmovie()})}}"><input type="button"value="Delete" name="btnInsertA" id="btnInsertA" /></a>
+      </div>
+    {% endfor %}
+</div>
+
+
+
+
+
+
+
+</div>
+
+{%endblock%}

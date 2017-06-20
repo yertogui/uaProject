@@ -1,0 +1,4 @@
+ua_uc_rua_project2:
+    resource: "@uaUCRuaProject2Bundle/Resources/config/routing.yml"
+    prefix:   /
+

@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>BLOCK BUSTER ADMINISTRATIVE TASK</title>
+
+
+        <link rel="stylesheet" href="{{ asset('bundles/ua_ucr_admin_app/css/reset.css')}}" type="text/css" />
+        <link rel="stylesheet" href="{{ asset('bundles/ua_ucr_admin_app/css/styles.css')}}" type="text/css" />
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+        <script type="text/javascript" src="{{ asset('bundles/ua_ucr_admin_app/js/jquery.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/ua_ucr_admin_app/js/slider.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/ua_ucr_admin_app/js/superfish.js')}}"></script>
+
+        <script type="text/javascript" src="{{ asset('bundles/ua_ucr_admin_app/js/custom.js')}}"></script>
+
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+
+    </head>
+    <body>
+        <div id="container" class="width">
+
+            <header> 
+                <div class="width">
+{%block tittlePage%}
+                    <h1><a href="{{path('ua_ucr_ua_project2_index_admin', {'email': app.request.get('email')})}}">Block<strong>Buster</strong></a></h1>
+
+                    <h1><a href="{{path('ua_ucr_ua_project2_index_admin', {'email': app.request.get('email')})}}">Administrative<strong>Taks</strong></a></h1>
+{%endblock%}
+                    <nav>
+{%block menuAdmin%}
+                        <ul class="sf-menu dropdown">
+
+
+                            <li class="selected"><a href="{{path('ua_ucr_ua_project2_index_admin', {'email': app.request.get('email')})}}"><i class="fa fa-home"></i> Home</a></li>
+
+                            <li>
+
+                                <a href="examples.html"><i class="fa fa-code"></i> Insert</a>
+
+                                <ul>
+                                    <li><a href="{{path('ua_ucr_ua_project2_insert_actor_form', {'email': app.request.get('email')})}}">Actor</a></li>
+                                    <li><a href="{{path('ua_ucr_ua_project2_insert_adm_form', {'email': app.request.get('email')})}}">Administrator</a></li>
+                                    <li><a href="{{path('ua_ucr_ua_project2_insert_gender_form', {'email': app.request.get('email')})}}">Gender</a></li>
+                                    <li><a href="{{path('ua_ucr_ua_project2_insert_movie_form', {'email': app.request.get('email')})}}">Movie</a></li>
+                                </ul>
+
+                            </li>
+
+                            <li><a href=".."><i class="fa fa-briefcase"></i> Update</a>
+                            <ul>
+                                    <li><a href="{{path('ua_ucr_ua_project2_update_actor_form', {'email': app.request.get('email')})}}">Actor</a></li>
+                                    <li><a href="{{path('ua_ucr_ua_project2_update_gender_form', {'email': app.request.get('email')})}}">Gender</a></li>
+                                    <li><a href="{{path('ua_ucr_ua_project2_update_movie_form', {'email': app.request.get('email')})}}">Movie</a></li>
+                                                                       
+                                </ul>
+                            </li>
+                            <li>
+
+                                <a href=".."><i class="fa fa-database"></i> Delete</a>
+
+                                <ul>
+                                    <li><a href="{{path('ua_ucr_ua_project2_update_actor_form', {'email': app.request.get('email')})}}">Actor</a></li>
+                                    <li><a href="{{path('ua_ucr_ua_project2_update_gender_form', {'email': app.request.get('email')})}}">Gender</a></li>
+                                    <li><a href="{{path('ua_ucr_ua_project2_update_movie_form', {'email': app.request.get('email')})}}">Movie</a></li>
+                                   </ul>
+
+                            </li>
+
+                            <li><a href=".."><i class="fa fa-code"></i> Reports</a>
+                            <ul>
+                                    <li><a href="{{path('ua_ucr_ua_project2_sale_movies_years_form', {'email': app.request.get('email')})}}">Sale Movies per year</a></li>
+                                      </ul>
+                             </li>
+                            <li><a href="#"><i class="fa fa-phone"></i>Block Buster</a>
+                            <ul>
+                                <li><a href="{{path('ua_ucr_ua_project2_update_information_form', {'email': app.request.get('email')})}}">Edit Information</a></li>
+                            </ul>
+                            </li>
+                        </ul>
+
+{%endblock%}
+                        <div class="clear"></div>
+                    </nav>
+                </div>
+
+                <div class="clear"></div>
+
+
+            </header>
+
+
+            <div id="intro">
+
+                <div class="width">
+{%block banner%}
+                    <div class="intro-content">
+
+                        <h2>Block Buster </h2>
+                        <p></p>
+
+                        <p><a href="{{path('ua_uc_rua_project2_log_out')}}" class="button button-slider"><i class="fa fa-gbp"></i>Log Out</a>
+                            
+
+                    </div>
+{%endblock%}
+                </div>
+
+
+            </div>
+
+            <div id="body" class="width">
+
+{%block content%}
+
+                <section id="content" class="two-column with-right-sidebar">
+
+                </section>
+{%endblock%}
+                <aside class="sidebar big-sidebar right-sidebar">
+{%block rightBar%}
+
+{%endblock%}
+                </aside>
+                <div class="clear"></div>
+            </div>
+
+    {%block footer%}
+            <footer>
+                <div class="footer-content width">
+                   
+                <h4>Block Buster </h4></li>
+                <h5>Copyright 2016º</h5>
+                <h6>Cartago,Costa Rica</h6>
+                    
+
+                   
+                    <ul class="endfooter">
+                        
+                        <li><br /><br />
+                          <h6>Contact us</h6>
+                            <div class="social-icons">
+
+                                <a href="#"><i class="fa fa-facebook fa-2x"></i></a>
+
+                                <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
+
+                                <a href="#"><i class="fa fa-youtube fa-2x"></i></a>
+
+                                <a href="#"><i class="fa fa-instagram fa-2x"></i></a>
+
+                            </div>
+
+                        </li>
+                    </ul>
+
+                    <div class="clear"></div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; Block Buster Administrative taks.</p>
+                </div>
+            </footer>
+    {%endblock%}
+        </div>
+    </body>
+</html>

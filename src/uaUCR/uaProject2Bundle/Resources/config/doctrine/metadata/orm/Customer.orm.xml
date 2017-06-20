@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Customer" table="customer">
+    <unique-constraints>
+      <unique-constraint name="user" columns="email,card"/>
+    </unique-constraints>
+    <id name="idcustomer" type="integer" column="idCustomer">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="name" type="string" column="name" length="50" nullable="true"/>
+    <field name="country" type="string" column="country" length="30" nullable="false"/>
+    <field name="address" type="string" column="address" length="300" nullable="true"/>
+    <field name="email" type="string" column="email" length="80" nullable="true"/>
+    <field name="telephone" type="integer" column="telephone" nullable="false"/>
+    <field name="password" type="string" column="password" length="50" nullable="true"/>
+    <field name="card" type="integer" column="card" nullable="true"/>
+    <many-to-many field="codmovie" target-entity="Movie" inversed-by="idcustomer">
+      <join-table name="purchase">
+        <join-columns>
+          <join-column name="idCustomer" referenced-column-name="idCustomer"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="codMovie" referenced-column-name="codMovie"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>
